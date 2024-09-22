@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Katalog Tanaman</title>
+<style>
+/* CSS untuk mengatur tampilan tabel dan elemen lainnya */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+
+<h2>Katalog Tanaman</h2>
+
+<input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Cari tanaman...">
+
+<table id="plantTable">
+  <tr>
+    <th>No</th>
+    <th>Dokumentasi</th> 
+    <th>Nama Pohon/Tanaman</th>
+    <th>Nama Latin</th>
+    <th>Lokasi</th>
+    <th>Jumlah</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td></td> 
+    <td>Glodokan tiang, False ashoka</td>
+    <td>Monoon longifolium</td>
+    <td>Halaman sekolah</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>#VALUE!</td> 
+    <td>Pucuk merah, Red lip / Kelat oil</td>
+    <td>Syzygium myrtifolium (Roxb.) Walp.</td>
+    <td>Halaman sekolah</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>#VALUE!</td> 
+    <td>Mahoni, West indian mahogany</td>
+    <td>Swietenia mahagoni (L.) Jacq.</td>
+    <td>Belakang kelas/taman</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>#VALUE!</td> 
+    <td>Kenidai, velvetly hairy</td>
+    <td>Bridelia tomentosa</td>
+    <td>Belakang kelas/taman</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>#VALUE!</td> 
+    <td>Jati, Teak</td>
+    <td>Tectona grandis</td>
+    <td>Belakang kelas</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>#VALUE!</td> 
+    <td>Beringin, Weeping fig, Ficus benjamina L.</td>
+    <td>Halaman sekolah</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>#VALUE!</td> 
+    <td>Kelapa, Coconut, Cocos nucifera L.</td>
+    <td>Belakang kelas</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>#VALUE!</td> 
+    <td>Angsana, Rosewood, Pterocarpus indicus Willd.</td>
+    <td>Halaman kelas</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>#VALUE!</td> 
+    <td>Flamboyan, Flame tree, Delonix regia (Bojer ex Hook.) Raf.</td>
+    <td>Halaman sekolah</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>#VALUE!</td> 
+    <td>Palem putri, Sealing wax palm, Cyrtostachys renda Blume</td>
+    <td>Halaman sekolah</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>#VALUE!</td> 
+    <td>Cemara kipas, Norfolk Island pine, Araucaria heterophylla (Salisb.) Franco</td>
+    <td>Belakang kelas</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>#VALUE!</td> 
+    <td>Kamboja, Frangipani, Plumeria rubra L.</td>
+    <td>Halaman kelas</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>#VALUE!</td> 
+    <td>Lidah mertua, Snake plant, Sansevieria trifasciata Prain</td>
+    <td>Halaman kelas</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>#VALUE!</td> 
+    <td>Pandan wangi, Fragrant screwpine, Pandanus amaryllifolius Roxb.</td>
+    <td>Belakang kelas</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>#VALUE!</td> 
+    <td>Nanas kerang, Seashore screwpine, Pandanus tectorius Parkinson ex Du Roi</td>
+    <td>Belakang kelas</td>
+    <td>20</td>
+  </tr>
+</table>
+
+<script>
+function searchTable() {
+  // Fungsi untuk melakukan pencarian dalam tabel (Anda perlu melengkapi ini)
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("plantTable");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      if (td[j]) {
+        txtValue = td[j].textContent || td[j].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break;
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+}
+</script>
+
+</body>
+</html>
